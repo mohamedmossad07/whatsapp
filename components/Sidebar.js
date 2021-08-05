@@ -70,7 +70,7 @@ const Container=styled.div`
 flex:  .45;
 border-right: 1px solid whitesmoke;
 height: 100vh;
-min-width: 300px;
+min-width: 350px;
 max-width: 350px;
 overflow-y: scroll;
 ::-webkit-scrollbar{

@@ -52,13 +52,25 @@ export default function ChatScreen({chat,messages}) {
     }
     const recipient=recipientSnapshot?.docs?.[0]?.data();
  
+    const cutEmail=(e='')=>{
+        let indexOfAt=e.indexOf('@');
+        if(indexOfAt>-1){
+           let name=e.slice(0,indexOfAt),
+           provider=e.slice(indexOfAt);
+           if(name.length>6){
+              name= e.slice(0,6);
+           }
+            return `${name}..${provider}`;
+        }
+        return e;
+    }
 
     return (
         <Container>
             <Header>
                 {recipient?(<Avatar src={recipient.photoURL}/>):(<Avatar className="capitalize" >{recepEm[0]}</Avatar>)}
                  <HeaderInfo>
-                    <h3>{recepEm}</h3>
+                    <h3>{cutEmail(recepEm)}</h3>
                     {recipientSnapshot?(<p>last seen : {recipient?.lastSeen?.toDate()? (<TimeAgo datetime={recipient?.lastSeen?.toDate()} />):"UnAvailable" } </p>):(<p>Loading last seen...</p>)} 
                 </HeaderInfo> 
             </Header>

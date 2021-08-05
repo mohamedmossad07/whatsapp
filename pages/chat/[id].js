@@ -49,7 +49,7 @@ export const getServerSideProps = async ({query}) => {
 }
 const SidebarContainer=styled.div`
  position: relative;
-  margin-left: ${({expanded})=>expanded?'0px':'-300px'};
+  margin-left: ${({expanded})=>expanded?'0px':'-350px'};
   transition: all .2s;
 `;
 const ToggleSidebar=styled.div`
